@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - EduStud</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body id="home">
+
+    <div id="alert"></div>
+
+    <div id="logout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-logout">&times;</span>
+            <p>Are you sure you want to logout?</p>
+            <button id="confirm-logout">Yes</button>
+            <button id="cancel-logout">No</button>
+        </div>
+    </div>
+
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-delete">&times;</span>
+            <p>Are you sure you want to delete this profile?</p>
+            <button id="confirm-delete">Yes</button>
+            <button id="cancel-delete">No</button>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-edit">&times;</span>
+            <form id="edit-form">
+                <h2>Edit Profile</h2>
+                <label for="edit-full-name">Full Name</label>
+                <input type="text" id="edit-full-name" name="full_name" value="{{current_user.full_name}}">
+                <label for="edit-matric-number">Matric Number</label>
+                <input type="text" id="edit-matric-number" name="matric_number" value="{{current_user.matric_number}}">
+                <label for="edit-gender">Gender</label>
+                <input type="text" id="edit-gender" name="gender" value="{{current_user.gender or ''}}">
+                <label for="edit-level">Level</label>
+                <input type="text" id="edit-level" name="level" value="{{current_user.level or ''}}">
+                <label for="edit-department">Department</label>
+                <input type="text" id="edit-department" name="department" value="{{current_user.department or ''}}">
+                <label for="edit-hostel">Hostel</label>
+                <input type="text" id="edit-hostel" name="hostel" value="{{current_user.hostel or ''}}">
+                <label for="edit-room">Room</label>
+                <input type="text" id="edit-room" name="room" value="{{current_user.room or ''}}">
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="profile-container" id="{{current_user.id}}">
+        <div class="profile-header">
+            <h1>Student Profile</h1>
+            <button id="logout-btn">Logout</button>
+        </div>
+        <div class="profile-content">
+            <div class="profile-item">
+                <strong>Full Name:</strong> <span id="student-full-name">{{current_user.full_name}}</span>
+            </div>
+            <div class="profile-item">
+                <strong>Matric Number:</strong> <span id="student-matric-number">{{current_user.matric_number}}</span>
+            </div>
+            <div class="profile-item">
+                <strong>Gender:</strong> <span id="student-gender">{{current_user.gender or "Null"}}</span>
+            </div>
+            <div class="profile-item">
+                <strong>Level:</strong> <span id="student-level">{{current_user.level or "Null"}}</span>
+            </div>
+            <div class="profile-item">
+                <strong>Department:</strong> <span id="student-department">{{current_user.department or "Null"}}</span>
+            </div>
+            <div class="profile-item">
+                <strong>Hostel:</strong> <span id="student-hostel">{{current_user.hostel or "Null"}}</span>
+            </div>
+            <div class="profile-item">
+                <strong>Room:</strong> <span id="student-room">{{current_user.room or "Null"}}</span>
+            </div>
+        </div>
+        <div class="profile-actions">
+            <button id="edit-btn">Edit</button>
+            <button id="delete-btn">Delete</button>
+        </div>
+    </div>
+    <script src="../static/scripts.js"></script>
+</body>
+</html>
